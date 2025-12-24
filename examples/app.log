@@ -1,0 +1,12 @@
+2024-01-15 10:23:45 INFO User login successful user=alice session=abc123
+2024-01-15 10:24:12 ERROR Database connection timeout status=503 service=postgres retry=3
+2024-01-15 10:24:15 ERROR Authentication failed user=bob status=401 reason=invalid_token
+2024-01-15 10:24:18 WARN Rate limit approaching user=alice requests=95
+2024-01-15 10:25:30 INFO Request completed status=200 duration=45ms path=/api/users
+2024-01-15 10:26:00 ERROR Payment processing failed status=500 amount=99.99 transaction=tx_456
+2024-01-15 10:26:15 INFO Cache hit key=user:alice ttl=3600
+2024-01-15 10:27:00 ERROR External API timeout status=504 service=payment_gateway timeout=30s
+2024-01-15 10:27:30 INFO User logout user=bob session=xyz789
+2024-01-15 10:28:00 WARN Memory usage high percentage=85 threshold=80
+2024-01-15 10:28:30 INFO Background job completed job=email_sender duration=120s
+2024-01-15 10:29:00 ERROR Disk space low available=5GB threshold=10GB path=/var/log
