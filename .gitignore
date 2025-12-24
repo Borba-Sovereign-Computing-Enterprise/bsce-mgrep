@@ -1,0 +1,21 @@
+# Virtual Environments
+venv/
+.env/
+.venv/
+
+# Packaging
+**/src/bsce_mgrep.egg-info
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDEs
+.vscode/
+.idea/
