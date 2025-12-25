@@ -5,7 +5,7 @@ using Railway-Oriented Programming.
 """
 
 from typing import Callable
-from result import Result, Ok, Err
+from result import Ok, Err
 
 from bsce_mgrep.domain.types import MatchContext, FilterResult, FilterExpression
 from bsce_mgrep.domain.where_parser import parse_where_expression, evaluate_where, ASTNode
