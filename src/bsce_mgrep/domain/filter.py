@@ -10,7 +10,6 @@ from result import Ok, Err
 from bsce_mgrep.domain.types import MatchContext, FilterResult, FilterExpression
 from bsce_mgrep.domain.where_parser import parse_where_expression, evaluate_where, ASTNode
 
-
 def create_filter(expressions: list[FilterExpression]) -> Callable[[MatchContext], FilterResult]:
     """Create a composite filter from multiple where expressions.
     
@@ -69,7 +68,6 @@ def create_filter(expressions: list[FilterExpression]) -> Callable[[MatchContext
     
     return composite_filter
 
-
 def combine_filters_and(
     filters: list[Callable[[MatchContext], FilterResult]]
 ) -> Callable[[MatchContext], FilterResult]:
@@ -113,7 +111,6 @@ def combine_filters_and(
     
     return combined
 
-
 def combine_filters_or(
     filters: list[Callable[[MatchContext], FilterResult]]
 ) -> Callable[[MatchContext], FilterResult]:
@@ -154,7 +151,6 @@ def combine_filters_or(
         return Ok(False)
     
     return combined
-
 
 def negate_filter(
     filter_fn: Callable[[MatchContext], FilterResult]
