@@ -7,15 +7,13 @@ error handling. Matchers are pure functions that transform Lines into MatchConte
 from dataclasses import dataclass
 from typing import Callable
 import re
-from result import Result, Ok, Err
+from result import Ok, Err
 
 from bsce_mgrep.domain.types import Line, MatchContext, MatchResult, PatternString
-
 
 # Regex pattern delimiter
 REGEX_DELIMITER = '/'
 MIN_REGEX_LENGTH = 3  # Minimum: /x/
-
 
 @dataclass(frozen=True, slots=True)
 class MatchConfig:
@@ -32,7 +30,6 @@ class MatchConfig:
     """
     pattern: PatternString
     case_sensitive: bool
-
 
 def create_matcher(config: MatchConfig) -> Callable[[Line], MatchResult]:
     """Factory function that creates a pattern matcher.
@@ -64,7 +61,6 @@ def create_matcher(config: MatchConfig) -> Callable[[Line], MatchResult]:
             # Empty pattern or invalid type
             return lambda line: Err(f"Invalid pattern: {config.pattern!r}")
 
-
 def _is_regex_pattern(pattern: str) -> bool:
     """Check if pattern is wrapped in /.../ delimiters.
     
@@ -87,7 +83,6 @@ def _is_regex_pattern(pattern: str) -> bool:
         and pattern.startswith(REGEX_DELIMITER)
         and pattern.endswith(REGEX_DELIMITER)
     )
-
 
 def _create_regex_matcher(config: MatchConfig) -> Callable[[Line], MatchResult]:
     """Create a regex matcher with named group support.
@@ -133,7 +128,6 @@ def _create_regex_matcher(config: MatchConfig) -> Callable[[Line], MatchResult]:
             return Err(f"No match at line {line.number}")
     
     return matcher
-
 
 def _create_literal_matcher(config: MatchConfig) -> Callable[[Line], MatchResult]:
     """Create a literal string matcher.
