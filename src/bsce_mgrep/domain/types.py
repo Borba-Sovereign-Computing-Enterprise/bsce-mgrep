@@ -5,7 +5,6 @@ All types are immutable and represent pure domain concepts.
 """
 
 from dataclasses import dataclass
-from typing import NewType
 from result import Result
 
 # Type aliases using Python 3.12 syntax
