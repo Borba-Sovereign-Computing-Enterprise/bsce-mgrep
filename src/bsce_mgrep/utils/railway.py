@@ -14,7 +14,6 @@ C = TypeVar('C')
 E = TypeVar('E')
 F = TypeVar('F')
 
-
 def bind(f: Callable[[A], Result[B, E]]) -> Callable[[Result[A, E]], Result[B, E]]:
     """Monadic bind for Result (flatMap / chain).
     
@@ -139,7 +138,6 @@ def filter_results(
                     yield result
     return filtered
 
-
 def collect_ok(results: Iterator[Result[A, E]]) -> list[A]:
     """Collect only the Ok values from an iterator of Results.
     
@@ -159,7 +157,6 @@ def collect_ok(results: Iterator[Result[A, E]]) -> list[A]:
     """
     return [value for result in results if isinstance(result, Ok) for value in [result.ok_value]]
 
-
 def collect_errors(results: Iterator[Result[A, E]]) -> list[E]:
     """Collect only the error values from an iterator of Results.
     
@@ -177,7 +174,6 @@ def collect_errors(results: Iterator[Result[A, E]]) -> list[E]:
         ['error1', 'error2']
     """
     return [error for result in results if isinstance(result, Err) for error in [result.err_value]]
-
 
 def unwrap_or(default: A) -> Callable[[Result[A, E]], A]:
     """Unwrap a Result, providing a default value for Err cases.
@@ -202,7 +198,6 @@ def unwrap_or(default: A) -> Callable[[Result[A, E]], A]:
             case Err(_):
                 return default
     return unwrapper
-
 
 def unwrap_or_else(f: Callable[[E], A]) -> Callable[[Result[A, E]], A]:
     """Unwrap a Result, computing a default from the error.
