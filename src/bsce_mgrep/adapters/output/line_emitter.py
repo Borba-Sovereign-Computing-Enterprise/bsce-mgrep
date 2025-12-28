@@ -11,7 +11,6 @@ from result import Result, Ok, Err
 
 from bsce_mgrep.domain.types import MatchContext
 
-
 @dataclass(frozen=True, slots=True)
 class LineEmitter:
     """Adapter for emitting matched lines to stdout.
