@@ -7,7 +7,8 @@ Uses dependency injection via the hexagonal architecture.
 import sys
 from result import Result, Ok, Err
 
-from bsce_mgrep.cli.parser import CLIArgs, _is_stdin_piped
+from bsce_mgrep.cli.parser import _is_stdin_piped
+from bsce_mgrep.cli.parser import CLIArgs
 from bsce_mgrep.adapters.input.file_reader import FileReader
 from bsce_mgrep.adapters.input.stdin_reader import StdinReader
 from bsce_mgrep.adapters.output.line_emitter import LineEmitter
