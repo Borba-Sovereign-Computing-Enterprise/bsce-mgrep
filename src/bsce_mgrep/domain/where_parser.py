@@ -17,7 +17,6 @@ Grammar:
 """
 
 from dataclasses import dataclass
-from typing import Callable
 from result import Result, Ok, Err
 import re
 
