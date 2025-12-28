@@ -12,7 +12,6 @@ B = TypeVar('B')
 C = TypeVar('C')
 D = TypeVar('D')
 
-
 def pipe(*functions: Callable) -> Callable:
     """Compose functions left-to-right (Unix pipe style).
     
@@ -41,7 +40,6 @@ def pipe(*functions: Callable) -> Callable:
             result = func(result)
         return result
     return piped
-
 
 def compose(*functions: Callable) -> Callable:
     """Compose functions right-to-left (mathematical style).
@@ -72,7 +70,6 @@ def compose(*functions: Callable) -> Callable:
         return result
     return composed
 
-
 def identity(x: A) -> A:
     """Identity function - returns its argument unchanged.
     
@@ -91,7 +88,6 @@ def identity(x: A) -> A:
         'hello'
     """
     return x
-
 
 def const(value: A) -> Callable[[B], A]:
     """Create a constant function that always returns the same value.
@@ -112,7 +108,6 @@ def const(value: A) -> Callable[[B], A]:
     def constant_fn(_: B) -> A:
         return value
     return constant_fn
-
 
 def curry2(func: Callable[[A, B], C]) -> Callable[[A], Callable[[B], C]]:
     """Curry a two-argument function.
@@ -139,7 +134,6 @@ def curry2(func: Callable[[A, B], C]) -> Callable[[A], Callable[[B], C]]:
             return func(a, b)
         return curried_second
     return curried_first
-
 
 def flip(func: Callable[[A, B], C]) -> Callable[[B, A], C]:
     """Flip the order of arguments for a binary function.
